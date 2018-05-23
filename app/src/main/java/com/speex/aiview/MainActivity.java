@@ -2,8 +2,13 @@ package com.speex.aiview;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.speex.aiview.view.VerticalScrollLayout;
 
@@ -33,6 +39,36 @@ public class MainActivity extends AppCompatActivity {
         initVScrollLayout();
 
         initWakeUp();
+        initImageAndText();
+    }
+
+    private void initImageAndText() {
+        TextView textView = (TextView) findViewById(R.id.tv_img_text);
+
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        ImageSpan imageSpan1 = new ImageSpan(this, R.mipmap.small_mic);
+        SpannableString spannableString1 = new SpannableString("点 ");
+        spannableString1.setSpan(imageSpan1, spannableString1.length() - 1, spannableString1.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+
+//        ImageSpan imageSpan = new ImageSpan(this,R.mipmap.small_mic);
+//        SpannableString spannableString2 = new SpannableString(" ");
+//        spannableString2.setSpan(imageSpan, spannableString2.length() - 1, spannableString2.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+
+        spannableStringBuilder.append(spannableString1);
+        spannableStringBuilder.append(" 查看更多语音提示");
+//        spannableStringBuilder.append(spannableString2);
+
+        textView.setText(spannableStringBuilder);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "你妹的", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MangoTVActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initWakeUp() {
