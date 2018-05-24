@@ -63,12 +63,17 @@ public class MainActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "你妹的", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, MangoTVActivity.class);
-                startActivity(intent);
+                jumpMangoTV();
             }
         });
+        textView.requestFocus();
+    }
+
+    private void jumpMangoTV() {
+        Toast.makeText(this, "你妹的", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent();
+        intent.setClass(this, MangoTVActivity.class);
+        startActivity(intent);
     }
 
     private void initWakeUp() {
@@ -78,32 +83,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addMessage(View view) {
-//        mTvWakeUp.startAnimation(mAnimation);
+        jumpMangoTV();//跳转到测试页
 
         //平移 + 透明度变化 + 缩放动画
-        ObjectAnimator translationX = new ObjectAnimator().ofFloat(mTvRecognition, "translationX", 0f, 0f);
-        ObjectAnimator translationY = new ObjectAnimator().ofFloat(mTvRecognition, "translationY", 0, -mTvRecognition.getMeasuredHeight());
-        ObjectAnimator alpha = new ObjectAnimator().ofFloat(mTvRecognition, "alpha", 1f, 0.8f, 0.5f);
+//        ObjectAnimator translationX = new ObjectAnimator().ofFloat(mTvRecognition, "translationX", 0f, 0f);
+//        ObjectAnimator translationY = new ObjectAnimator().ofFloat(mTvRecognition, "translationY", 0, -mTvRecognition.getMeasuredHeight());
+//        ObjectAnimator alpha = new ObjectAnimator().ofFloat(mTvRecognition, "alpha", 1f, 0.8f, 0.5f);
+//
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(mTvRecognition, "scaleX", 1f, 0.7f);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(mTvRecognition, "scaleY", 1f, 0.7f);
+//
+//        AnimatorSet animatorSet2 = new AnimatorSet();  //组合动画
+//        animatorSet2.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
+//        animatorSet2.setDuration(500);  //设置动画时间
+//        animatorSet2.start(); //启动
+//
+//
+//        //下面的动画
+//        ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(mTvWakeUp, "translationX", 0f, 0f);
+//        ObjectAnimator translationY1 = new ObjectAnimator().ofFloat(mTvWakeUp, "translationY", mTvWakeUp.getMeasuredHeight(), 0);
+//        ObjectAnimator alpha1 = new ObjectAnimator().ofFloat(mTvWakeUp, "alpha", 0, 1, 1, 1);
+//
+//
+//        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
+//        animatorSet.playTogether(translationX1, translationY1, alpha1); //设置动画
+//        animatorSet.setDuration(500);  //设置动画时间
+//        animatorSet.start(); //启动
 
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(mTvRecognition, "scaleX", 1f, 0.7f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(mTvRecognition, "scaleY", 1f, 0.7f);
 
-        AnimatorSet animatorSet2 = new AnimatorSet();  //组合动画
-        animatorSet2.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
-        animatorSet2.setDuration(500);  //设置动画时间
-        animatorSet2.start(); //启动
-
-
-        //下面的动画
-        ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(mTvWakeUp, "translationX", 0f, 0f);
-        ObjectAnimator translationY1 = new ObjectAnimator().ofFloat(mTvWakeUp, "translationY", mTvWakeUp.getMeasuredHeight(), 0);
-        ObjectAnimator alpha1 = new ObjectAnimator().ofFloat(mTvWakeUp, "alpha", 0, 1, 1, 1);
-
-
-        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
-        animatorSet.playTogether(translationX1, translationY1, alpha1); //设置动画
-        animatorSet.setDuration(500);  //设置动画时间
-        animatorSet.start(); //启动
     }
 
     /**

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_recognition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="22sp"/>
+    <!--  android:text="你好牛奶"-->
+
+    <TextView
+        android:id="@+id/tv_wake_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="22sp"/>
+    <!--android:text="今天天气怎么样,我想去看电影"-->
+</RelativeLayout>

@@ -13,29 +13,73 @@
     <RelativeLayout
         android:id="@+id/rl_mic"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="6dp"
         android:layout_marginTop="50dp"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent"
+        android:clickable="true">
 
-    <RelativeLayout
-        android:id="@+id/rl_recognition"
+        <com.speex.aiview.mango.VoiceAnimView
+            android:id="@+id/voice_anim_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.speex.aiview.mango.VoiceAnimView>
+
+    </RelativeLayout>
+
+    <!--测试用-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:background="@color/colorPrimary"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_mic"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中间移动"/>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中间缩放"/>
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左右移动"/>
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关闭动画"/>
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="动态切换输入内容"/>
+
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/rl_tips"
         android:layout_width="100dp"
-        android:layout_centerInParent="true"
         android:layout_height="100dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:layout_centerInParent="true"
+        android:background="@color/colorPrimaryDark"
+        android:clickable="true"/>
+
 
     <RelativeLayout
         android:id="@+id/rl_help"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="20dp"
@@ -43,4 +87,16 @@
         android:background="@color/colorAccent">
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:id="@+id/rl_recognition"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:background="@color/colorPrimary">
+
+        <include layout="@layout/recognition_layout"/>
+
+    </RelativeLayout>
 </RelativeLayout>
